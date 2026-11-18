@@ -101,7 +101,7 @@ export default function QuishingDemo() {
       <header className="quish-topbar">
         <div className="quish-brand">
           <span className="quish-brand-text">
-            Pulso<span className="quish-brand-bang">!</span>
+            Kahot<span className="quish-brand-bang">!</span>
           </span>
         </div>
       </header>
