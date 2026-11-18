@@ -122,7 +122,7 @@ export default function QuishingDemo() {
           onTouchStart={triggerAlert}
         >
           <Mail size={18} className="quish-sso-icon" />
-          <span>Continuar con tu correo</span>
+          <span>Continuar con Google</span>
         </button>
 
         <div className="quish-divider" aria-hidden>
