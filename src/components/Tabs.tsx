@@ -61,7 +61,7 @@ export default function Tabs({
         </div>
       </div>
       <div className="tabs-panel">
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="wait" initial={false}>
           <motion.div
             key={active}
             className="tabs-panel-inner"

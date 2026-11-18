@@ -1,67 +1,54 @@
 /* ===================================================================
-   THEME TOKENS — Obsidian Precision (Minimalist Cybersecurity Default)
-   Edit ONLY this :root block to switch aesthetic presets:
-
-   Preset A (Active): Obsidian Precision — Carbon black + Ice Cyan
-     --bg: #05070a | --primary: #22d3ee | --accent-ink: #041318
-
-   Preset B: Terminal Emerald — Deep obsidian + Signal Emerald
-     --bg: #040806 | --primary: #10b981 | --accent-ink: #03140c
-
-   Preset C: Swiss Security (Light) — Paper white + Cobalt Blue
-     (also set `html { color-scheme: light }` in base.css)
-     --bg: #fafafa | --fg: #09090b | --fg-muted: #52525b
-     --surface: rgba(9,9,11,0.035) | --hair: rgba(9,9,11,0.10)
-     --primary: #0284c7 | --accent-ink: #ffffff
+   THEME TOKENS — Swiss Automotive Minimal (frontend-slides + bolt-slides)
+   Tipografía distintiva: Archivo (Display) + DM Sans (Body) + JetBrains Mono
+   Paleta blanco / negro carbono / acento rojo automotor contenido.
    =================================================================== */
 :root {
-  /* Surfaces — Pure obsidian depth, subtle hairline separation */
-  --bg: #05070a;
-  --bg-grad-1: rgba(34, 211, 238, 0.08);
-  --bg-grad-2: rgba(56, 189, 248, 0.05);
-  --surface: rgba(255, 255, 255, 0.035);
-  --surface-2: rgba(255, 255, 255, 0.06);
+  /* Surfaces — Carbon black, ultra-clean projector readability */
+  --bg: #09090b;
+  --bg-grad-1: rgba(235, 10, 30, 0.085);
+  --bg-grad-2: rgba(255, 255, 255, 0.035);
+  --surface: rgba(255, 255, 255, 0.04);
+  --surface-2: rgba(255, 255, 255, 0.075);
 
-  /* Ink — 4-level contrast hierarchy (Primary / Secondary / Muted / Hair) */
-  --fg: #f8fafc;
-  --fg-muted: #94a3b8;
-  --fg-faint: #64748b;
+  /* Ink — High-contrast 4-tier hierarchy */
+  --fg: #fafafa;
+  --fg-muted: #a1a1aa;
+  --fg-faint: #71717a;
 
   /* Hairlines */
-  --hair: rgba(255, 255, 255, 0.09);
-  --hair-2: rgba(255, 255, 255, 0.05);
+  --hair: rgba(255, 255, 255, 0.11);
+  --hair-2: rgba(255, 255, 255, 0.06);
 
-  /* Accent — Single surgical signal accent (Ice Cyan -> Crisp Sky) */
-  --primary: #22d3ee;
-  --accent: linear-gradient(125deg, #67e8f9 0%, #22d3ee 52%, #0ea5e9 100%);
-  --accent-ink: #041318;
+  /* Accent — Single restrained automotive crimson signal */
+  --primary: #eb0a1e;
+  --accent: linear-gradient(120deg, #ff5463 0%, #eb0a1e 55%, #b91c1c 100%);
+  --accent-ink: #ffffff;
 
-  /* Radius — Sharp editorial geometry */
-  --radius: 16px;
-  --radius-sm: 10px;
-  --radius-lg: 22px;
+  /* Radius — Crisp Swiss geometry */
+  --radius: 14px;
+  --radius-sm: 9px;
+  --radius-lg: 20px;
 
-  /* Depth — Restrained elevation */
+  /* Depth */
   --shadow: 0 40px 100px -45px rgba(0, 0, 0, 0.92);
-  --glow: 0 24px 64px -36px rgba(34, 211, 238, 0.35);
+  --glow: 0 24px 64px -36px rgba(235, 10, 30, 0.4);
 
-  /* Type — Clean sans + crisp mono for CVEs, hashes, logs */
-  --font-head: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display',
-    sans-serif;
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text',
-    sans-serif;
+  /* Type — Distinct editorial pairing (NO Inter/Roboto) */
+  --font-head: 'Archivo', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 
-  /* Motion — Crisp, unhurried transitions */
-  --dur: 0.38s;
+  /* Motion — Crisp corporate precision */
+  --dur: 0.36s;
   --ease: cubic-bezier(0.32, 0.72, 0, 1);
   --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
 
-  /* Atmosphere — Ultra-clean minimal texture */
-  --grain: 0.022;
+  /* Atmosphere */
+  --grain: 0.018;
   --vignette: rgba(0, 0, 0, 0.28);
 
   /* Responsive gutter */
-  --gutter: clamp(28px, 6vw, 120px);
-  --gutter-y: clamp(40px, 8vh, 96px);
+  --gutter: clamp(28px, 6vw, 112px);
+  --gutter-y: clamp(54px, 8.5vh, 92px);
 }

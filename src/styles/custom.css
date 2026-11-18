@@ -1,0 +1,885 @@
+/* ===================================================================
+   CUSTOM PRESENTATION STYLES & /encuesta ROUTE
+   Swiss Automotive Minimal — Crisp legibility for projectors & mobile
+   =================================================================== */
+
+/* ── Top hairline progress bar ────────────────────────────────────── */
+.talk-progress-track {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.08);
+  z-index: 60;
+  pointer-events: none;
+}
+
+.talk-progress-fill {
+  height: 100%;
+  background: var(--accent);
+  transition: width 0.35s var(--ease);
+}
+
+/* ── Discreet top-right block & 30-min timer HUD ──────────────────── */
+.talk-hud {
+  position: fixed;
+  top: 14px;
+  right: 20px;
+  z-index: 55;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: opacity 0.28s ease, transform 0.28s ease;
+}
+
+.talk-hud.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-6px);
+}
+
+.talk-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 34px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: rgba(14, 14, 18, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--fg-muted);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.talk-pill-btn {
+  cursor: pointer;
+  font-family: inherit;
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+
+.talk-pill-btn:hover {
+  border-color: rgba(255, 255, 255, 0.22);
+  color: var(--fg);
+}
+
+.talk-pill-btn.active {
+  border-color: rgba(235, 10, 30, 0.55);
+  color: var(--fg);
+  background: rgba(235, 10, 30, 0.14);
+}
+
+.talk-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--primary);
+  flex-shrink: 0;
+}
+
+.talk-mono {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-variant-numeric: tabular-nums;
+  color: var(--fg);
+}
+
+.talk-muted-sep {
+  opacity: 0.35;
+}
+
+/* ── Speaker Notes Drawer (toggled with N) ────────────────────────── */
+.notes-drawer {
+  position: fixed;
+  top: 58px;
+  right: 20px;
+  width: min(410px, calc(100vw - 32px));
+  max-height: calc(100vh - 150px);
+  overflow-y: auto;
+  z-index: 65;
+  padding: 18px 20px;
+  border-radius: var(--radius);
+  background: rgba(12, 12, 15, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 28px 80px -24px rgba(0, 0, 0, 0.88);
+  color: var(--fg);
+}
+
+.notes-drawer-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--hair);
+}
+
+.notes-drawer-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.notes-drawer-kicker {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #ff6b78;
+}
+
+.notes-drawer-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--fg);
+}
+
+.notes-section-label {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--fg-faint);
+  margin-bottom: 6px;
+}
+
+.notes-say {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: #e4e4e7;
+  margin: 0 0 14px;
+}
+
+.notes-key {
+  padding: 11px 13px;
+  border-radius: var(--radius-sm);
+  background: rgba(235, 10, 30, 0.1);
+  border: 1px solid rgba(235, 10, 30, 0.3);
+  font-size: 13px;
+  line-height: 1.45;
+  color: #fafafa;
+  margin-bottom: 12px;
+}
+
+.notes-bridge {
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: var(--fg-muted);
+  font-style: italic;
+  margin: 0;
+}
+
+.notes-close {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  border: 1px solid var(--hair);
+  background: transparent;
+  color: var(--fg-muted);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.notes-close:hover {
+  color: var(--fg);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* ── Minimalist Slide Visual Helpers ──────────────────────────────── */
+.split-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.callout-strip {
+  margin-top: clamp(18px, 2.8vh, 28px);
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  background: rgba(235, 10, 30, 0.09);
+  border-left: 3px solid var(--primary);
+  color: var(--fg);
+  font-size: clamp(14px, 1.35vw, 17px);
+  line-height: 1.45;
+}
+
+.callout-strip strong {
+  color: #ffffff;
+}
+
+.clean-list {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(12px, 1.8vh, 18px);
+  margin-top: clamp(16px, 2.5vh, 26px);
+}
+
+.clean-list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  font-size: clamp(15px, 1.45vw, 18px);
+  line-height: 1.45;
+  color: var(--fg-muted);
+}
+
+.clean-list-item strong {
+  color: var(--fg);
+  font-weight: 600;
+}
+
+.clean-list-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: var(--surface-2);
+  border: 1px solid var(--hair);
+  color: #ff5a67;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ── Emotion chips row (Slide 5) ──────────────────────────────────── */
+.emotion-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: clamp(24px, 3.8vh, 38px);
+  max-width: 820px;
+  margin-inline: auto;
+}
+
+.emotion-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 18px;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1px solid var(--hair);
+  color: var(--fg);
+  font-size: clamp(14px, 1.3vw, 17px);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.emotion-chip svg {
+  color: #ff5a67;
+}
+
+/* ── 5-column minimal cards (Slide 6 & Slide 12) ──────────────────── */
+.five-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(12px, 1.4vw, 18px);
+  width: 100%;
+  margin-inline: auto;
+}
+
+.five-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: clamp(18px, 2.2vw, 24px);
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--hair);
+  text-align: left;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.five-card:hover {
+  border-color: rgba(235, 10, 30, 0.45);
+  transform: translateY(-2px);
+}
+
+.five-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.five-card-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: rgba(235, 10, 30, 0.12);
+  border: 1px solid rgba(235, 10, 30, 0.26);
+  color: #ff5a67;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.five-card-num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--fg-faint);
+}
+
+.five-card h3 {
+  margin: 4px 0 0;
+  font-family: var(--font-head);
+  font-size: clamp(16px, 1.45vw, 19px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--fg);
+}
+
+.five-card p {
+  margin: 0;
+  font-size: clamp(13px, 1.15vw, 15px);
+  line-height: 1.45;
+  color: var(--fg-muted);
+}
+
+/* ── Dealership Scenarios Mock Panel (Slide 8) ────────────────────── */
+.scenario-card {
+  max-width: 760px;
+  margin-inline: auto;
+  padding: clamp(22px, 3vw, 32px);
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--hair);
+  text-align: left;
+}
+
+.scenario-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 14px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--hair-2);
+  font-size: 13px;
+  color: var(--fg-muted);
+}
+
+.scenario-channel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--fg);
+}
+
+.scenario-sector {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  color: var(--fg-muted);
+}
+
+.scenario-quote {
+  font-size: clamp(18px, 2vw, 23px);
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--fg);
+  margin: 0 0 18px;
+  letter-spacing: -0.015em;
+}
+
+.scenario-flag {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 15px;
+  border-radius: var(--radius-sm);
+  background: rgba(235, 10, 30, 0.11);
+  border: 1px solid rgba(235, 10, 30, 0.32);
+  font-size: clamp(13.5px, 1.25vw, 15.5px);
+  color: #fafafa;
+}
+
+.scenario-flag svg {
+  color: #ff5a67;
+  flex-shrink: 0;
+}
+
+/* ── PII Tag Cluster (Slide 9) ────────────────────────────────────── */
+.pii-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: clamp(16px, 2.4vh, 24px);
+}
+
+.pii-tag {
+  padding: 8px 13px;
+  border-radius: 8px;
+  background: var(--surface-2);
+  border: 1px solid var(--hair);
+  font-size: clamp(13px, 1.15vw, 15px);
+  font-weight: 500;
+  color: var(--fg);
+}
+
+/* ── AI Two Fronts Cards (Slide 11) ───────────────────────────────── */
+.ai-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: clamp(16px, 2.4vh, 24px);
+}
+
+.ai-row {
+  padding: 15px 18px;
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  border: 1px solid var(--hair);
+}
+
+.ai-row-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #ff6b78;
+  margin-bottom: 6px;
+}
+
+.ai-row p {
+  margin: 0;
+  font-size: clamp(14px, 1.3vw, 16.5px);
+  line-height: 1.45;
+  color: var(--fg-muted);
+}
+
+.ai-row strong {
+  color: var(--fg);
+}
+
+/* ── Contrast panel projector legibility boost (Slide 10) ─────────── */
+.con-panel.lit .chip {
+  color: #ff8a94;
+  background: rgba(235, 10, 30, 0.16);
+  border-color: rgba(235, 10, 30, 0.38);
+}
+
+.con-panel .con-point {
+  color: #d4d4d8;
+}
+
+.con-panel.lit .con-point {
+  color: #f4f4f5;
+}
+
+/* ── QR Survey Slide (Slide 14 — Balanced 2-Column) ───────────────── */
+.qr-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) auto;
+  align-items: center;
+  gap: clamp(28px, 5vw, 72px);
+  max-width: 980px;
+  margin-inline: auto;
+}
+
+.qr-copy {
+  text-align: left;
+}
+
+.qr-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: clamp(22px, 3.2vh, 32px);
+}
+
+.qr-hint-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  border: 1px solid var(--hair);
+  color: var(--fg);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.qr-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qr-frame {
+  padding: 20px;
+  border-radius: 22px;
+  background: #ffffff;
+  box-shadow: 0 32px 90px -30px rgba(0, 0, 0, 0.85),
+    0 0 0 1px rgba(255, 255, 255, 0.2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qr-debrief-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: rgba(235, 10, 30, 0.14);
+  border: 1px solid rgba(235, 10, 30, 0.45);
+  color: #fafafa;
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.qr-debrief-btn:hover {
+  border-color: rgba(235, 10, 30, 0.8);
+  background: rgba(235, 10, 30, 0.24);
+  transform: translateY(-1px);
+}
+
+/* ── Responsive Adjustments ───────────────────────────────────────── */
+@media (max-width: 980px) {
+  .five-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .qr-split {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .qr-copy {
+    text-align: center;
+  }
+  .qr-copy .lead {
+    margin-inline: auto;
+  }
+  .qr-actions {
+    justify-content: center;
+  }
+  .talk-hud {
+    top: 10px;
+    right: 12px;
+  }
+  .talk-pill-block {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .five-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===================================================================
+   ROUTE 2: /encuesta — SIMULACIÓN EDUCATIVA DE QUISHING (100% SEGURA)
+   =================================================================== */
+.quish-page {
+  min-height: 100vh;
+  min-height: 100svh;
+  width: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  background: #f3f4f6;
+  color: #18181b;
+  font-family: var(--font-body);
+}
+
+.quish-page.revealed {
+  background: #09090b;
+  color: #fafafa;
+}
+
+.quish-card {
+  width: 100%;
+  max-width: 430px;
+  background: #ffffff;
+  border-radius: 22px;
+  border: 1px solid #e4e4e7;
+  box-shadow: 0 18px 50px -24px rgba(15, 23, 42, 0.2);
+  padding: 36px 32px 30px;
+}
+
+.quish-emblem {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #18181b;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.quish-title {
+  margin: 0 0 6px;
+  font-family: var(--font-head);
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #09090b;
+}
+
+.quish-subtitle {
+  margin: 0 0 26px;
+  font-size: 14.5px;
+  line-height: 1.45;
+  color: #52525b;
+}
+
+.quish-subtitle strong {
+  color: #09090b;
+  font-weight: 600;
+}
+
+.quish-field {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.quish-input {
+  width: 100%;
+  height: 54px;
+  padding: 18px 14px 6px;
+  border-radius: 10px;
+  border: 1px solid #d4d4d8;
+  background: #ffffff;
+  font-family: inherit;
+  font-size: 15px;
+  color: #18181b;
+  cursor: text;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.quish-input:focus {
+  border-color: #1d4ed8;
+  box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.14);
+}
+
+.quish-label {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14.5px;
+  color: #71717a;
+  pointer-events: none;
+}
+
+.quish-link-btn {
+  border: 0;
+  background: transparent;
+  padding: 4px 0;
+  font-family: inherit;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #1d4ed8;
+  cursor: pointer;
+}
+
+.quish-info {
+  margin: 24px 0 28px;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: #71717a;
+}
+
+.quish-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.quish-primary-btn {
+  border: 0;
+  border-radius: 999px;
+  background: #1d4ed8;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 14.5px;
+  font-weight: 600;
+  padding: 11px 24px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.quish-primary-btn:hover {
+  background: #1e40af;
+}
+
+.quish-footer-note {
+  margin-top: 18px;
+  font-size: 12px;
+  color: #71717a;
+  text-align: center;
+}
+
+/* ── Revealed Educational Alert Screen ────────────────────────────── */
+.quish-alert-card {
+  width: 100%;
+  max-width: 540px;
+  background: #111114;
+  border-radius: 22px;
+  border: 1px solid rgba(235, 10, 30, 0.45);
+  box-shadow: 0 32px 90px -24px rgba(0, 0, 0, 0.85),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+  padding: clamp(24px, 5vw, 38px);
+}
+
+.quish-alert-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(235, 10, 30, 0.16);
+  border: 1px solid rgba(235, 10, 30, 0.45);
+  color: #ff6b78;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+}
+
+.quish-alert-title {
+  margin: 0 0 14px;
+  font-family: var(--font-head);
+  font-size: clamp(30px, 7vw, 44px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+}
+
+.quish-alert-title span {
+  color: #ff4d5a;
+}
+
+.quish-calm {
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.32);
+  color: #d1fae5;
+  font-size: 14.5px;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.quish-lead {
+  margin: 0 0 20px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: #d4d4d8;
+}
+
+.quish-tips {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  margin-bottom: 24px;
+}
+
+.quish-tip {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 13px 15px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  font-size: 14px;
+  line-height: 1.45;
+  color: #e4e4e7;
+}
+
+.quish-tip-num {
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  background: rgba(235, 10, 30, 0.18);
+  color: #ff6b78;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.quish-tip strong {
+  color: #ffffff;
+}
+
+.quish-url-chip {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  padding: 2px 6px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fafafa;
+}
+
+.quish-alert-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.quish-ghost-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: transparent;
+  color: #d4d4d8;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.quish-ghost-btn:hover {
+  border-color: rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+}
