@@ -605,139 +605,288 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 24px 16px;
-  background: #f3f4f6;
+  padding: 68px 16px 28px;
+  position: relative;
+  background: #f5f6f8;
   color: #18181b;
   font-family: var(--font-body);
 }
 
+.quish-page.quiz-bg {
+  background-color: #f3f4f6;
+  background-image: linear-gradient(
+      128deg,
+      rgba(229, 231, 235, 0.72) 0%,
+      rgba(229, 231, 235, 0.72) 28%,
+      transparent 28.2%
+    ),
+    linear-gradient(
+      235deg,
+      rgba(229, 231, 235, 0.65) 0%,
+      rgba(229, 231, 235, 0.65) 26%,
+      transparent 26.2%
+    );
+}
+
 .quish-page.revealed {
+  padding-top: 28px;
   background: #09090b;
   color: #fafafa;
 }
 
-.quish-card {
-  width: 100%;
-  max-width: 430px;
-  background: #ffffff;
-  border-radius: 22px;
-  border: 1px solid #e4e4e7;
-  box-shadow: 0 18px 50px -24px rgba(15, 23, 42, 0.2);
-  padding: 36px 32px 30px;
+.quish-topbar {
+  position: absolute;
+  top: 18px;
+  left: 22px;
+  right: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.quish-emblem {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  background: #18181b;
+.quish-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.quish-brand-mark {
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  background: #0f766e;
   color: #ffffff;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 18px;
+}
+
+.quish-brand-name {
+  font-family: var(--font-head);
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #115e59;
+}
+
+.quish-card.quiz-card {
+  width: 100%;
+  max-width: 424px;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 10px 34px -16px rgba(15, 23, 42, 0.16);
+  padding: 28px 26px 26px;
 }
 
 .quish-title {
-  margin: 0 0 6px;
+  margin: 0 0 4px;
   font-family: var(--font-head);
-  font-size: 25px;
-  font-weight: 700;
+  font-size: 22px;
+  font-weight: 800;
   letter-spacing: -0.02em;
-  color: #09090b;
+  color: #18181b;
 }
 
 .quish-subtitle {
-  margin: 0 0 26px;
-  font-size: 14.5px;
+  margin: 0 0 18px;
+  font-size: 13.5px;
   line-height: 1.45;
   color: #52525b;
 }
 
 .quish-subtitle strong {
-  color: #09090b;
+  color: #18181b;
   font-weight: 600;
 }
 
-.quish-field {
-  position: relative;
+.quish-provider-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
   margin-bottom: 10px;
 }
 
-.quish-input {
-  width: 100%;
-  height: 54px;
-  padding: 18px 14px 6px;
-  border-radius: 10px;
+.quish-provider-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px 6px;
+  border-radius: 6px;
   border: 1px solid #d4d4d8;
   background: #ffffff;
+  color: #27272a;
   font-family: inherit;
-  font-size: 15px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.quish-provider-btn:hover {
+  border-color: #a1a1aa;
+  background: #fafafa;
+}
+
+.quish-prov-icon.accent-blue {
+  color: #2563eb;
+}
+
+.quish-prov-icon.accent-teal {
+  color: #0f766e;
+}
+
+.quish-prov-icon.accent-slate {
+  color: #18181b;
+}
+
+.quish-prov-icon.accent-indigo {
+  color: #4f46e5;
+}
+
+.quish-sso-btn {
+  width: 100%;
+  height: 44px;
+  border-radius: 6px;
+  border: 1px solid #d4d4d8;
+  background: #ffffff;
+  color: #18181b;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.quish-sso-btn:hover {
+  border-color: #a1a1aa;
+  background: #fafafa;
+}
+
+.quish-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 18px 0 14px;
+}
+
+.quish-divider span {
+  flex: 1;
+  height: 1px;
+  background: #e4e4e7;
+}
+
+.quish-divider em {
+  font-style: normal;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #3f3f46;
+}
+
+.quish-stack-field {
+  margin-bottom: 14px;
+}
+
+.quish-field-label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #27272a;
+}
+
+.quish-clean-input {
+  width: 100%;
+  height: 44px;
+  padding: 0 12px;
+  border-radius: 5px;
+  border: 1px solid #bdbdc5;
+  background: #ffffff;
+  font-family: inherit;
+  font-size: 14.5px;
   color: #18181b;
   cursor: text;
   outline: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
-.quish-input:focus {
-  border-color: #1d4ed8;
-  box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.14);
+.quish-clean-input.has-icon {
+  padding-right: 42px;
 }
 
-.quish-label {
+.quish-clean-input:focus {
+  border-color: #0f766e;
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.14);
+}
+
+.quish-pass-wrap {
+  position: relative;
+}
+
+.quish-eye-btn {
   position: absolute;
-  left: 14px;
+  right: 8px;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 14.5px;
-  color: #71717a;
-  pointer-events: none;
-}
-
-.quish-link-btn {
+  width: 30px;
+  height: 30px;
   border: 0;
   background: transparent;
-  padding: 4px 0;
-  font-family: inherit;
-  font-size: 13.5px;
-  font-weight: 600;
-  color: #1d4ed8;
+  color: #52525b;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
 }
 
-.quish-info {
-  margin: 24px 0 28px;
-  font-size: 12.5px;
-  line-height: 1.5;
-  color: #71717a;
-}
-
-.quish-actions {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-.quish-primary-btn {
+.quish-help-link {
   border: 0;
-  border-radius: 999px;
-  background: #1d4ed8;
+  background: transparent;
+  padding: 0;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  color: #3f3f46;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+
+.quish-help-link.inline {
+  color: #18181b;
+  font-weight: 700;
+}
+
+.quish-submit-btn {
+  width: 100%;
+  height: 44px;
+  margin-top: 18px;
+  border: 0;
+  border-radius: 5px;
+  background: #0f766e;
   color: #ffffff;
   font-family: inherit;
   font-size: 14.5px;
-  font-weight: 600;
-  padding: 11px 24px;
+  font-weight: 700;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: background 0.15s ease;
 }
 
-.quish-primary-btn:hover {
-  background: #1e40af;
+.quish-submit-btn:hover {
+  background: #115e59;
+}
+
+.quish-signup-row {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 13px;
+  color: #52525b;
 }
 
 .quish-footer-note {
-  margin-top: 18px;
+  margin-top: 16px;
   font-size: 12px;
   color: #71717a;
   text-align: center;
