@@ -71,7 +71,7 @@ export default function QuishingDemo() {
               <span className="quish-tip-num">3</span>
               <div>
                 <strong>Frená 5 segundos antes de tocar</strong> cada vez que
-                escaneás un código QR — un QR es solo un link disfrazado.
+                escaneás un código QR: un QR es solo un link disfrazado.
               </div>
             </div>
           </div>

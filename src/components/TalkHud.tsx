@@ -161,7 +161,7 @@ export default function TalkHud() {
                 {guide.timeWindow})
               </span>
               <span className="notes-drawer-title">
-                Slide {guide.slideNumber}/{SLIDE_GUIDES.length} — {guide.nav}
+                Slide {guide.slideNumber}/{SLIDE_GUIDES.length} · {guide.nav}
               </span>
             </div>
             <button

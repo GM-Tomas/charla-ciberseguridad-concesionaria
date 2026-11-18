@@ -73,7 +73,7 @@ export default function App() {
           body={
             <>
               <p style={{ margin: 0 }}>
-                Somos el primer punto de vulnerabilidad — pero también la{' '}
+                Somos el primer punto de vulnerabilidad, pero también la{' '}
                 <strong style={{ color: '#fafafa' }}>
                   primera barrera de defensa
                 </strong>
@@ -82,8 +82,8 @@ export default function App() {
               <Build at={1}>
                 <div className="callout-strip">
                   <strong>Octubre Negro (oct. 2026):</strong> fallas masivas,
-                  ataques a proveedores e IA. Aun así, en una PyME del día a día
-                  el vector #1 sigue siendo un clic humano.
+                  ataques a proveedores e IA. Aun así, en el día a día de
+                  cualquier empresa el vector #1 sigue siendo un clic humano.
                 </div>
               </Build>
             </>
@@ -101,10 +101,10 @@ export default function App() {
         <BigNumber
           nav={SLIDE_GUIDES[2].nav}
           notes={n(2)}
-          kicker="02 · Caso Binance (2019) · 3 min"
-          value={<CountUp to={7000} suffix=" BTC" />}
-          caption="≈ USD 40 millones robados a una de las plataformas con mayor inversión en seguridad del mundo."
-          foot="Si le pasó a un gigante tecnológico, el criterio humano importa en todos lados."
+          kicker="02 · Caso Binance (oct. 2026) · 3 min"
+          value={<CountUp to={6300} prefix="USD " suffix=" M" />}
+          caption="USD 6.300 millones robados el 29 de octubre de 2026 en el mayor robo cripto de la historia."
+          foot="Ni el mayor presupuesto de seguridad del mundo alcanza si falla el criterio humano."
         />
 
         {/* 04 · CASO BINANCE: CÓMO ENTRARON (Bloque 2 · 3 min) */}
@@ -112,8 +112,8 @@ export default function App() {
           flip
           nav={SLIDE_GUIDES[3].nav}
           notes={n(3)}
-          kicker="02 · La lección"
-          title="La mejor tecnología sin criterio humano no alcanza."
+          kicker="02 · Cómo entraron"
+          title="No rompieron la bóveda. Engañaron a una persona."
           body={
             <div className="clean-list">
               <div className="clean-list-item">
@@ -121,8 +121,9 @@ export default function App() {
                   <KeyRound size={15} />
                 </span>
                 <span>
-                  <strong>Phishing + malware:</strong> robaron credenciales,
-                  llaves de API y códigos 2FA reales.
+                  <strong>Entrevista laboral falsa:</strong> contactaron a
+                  ingenieros con una oferta trucha y una prueba técnica con
+                  malware oculto.
                 </span>
               </div>
               <div className="clean-list-item">
@@ -130,8 +131,9 @@ export default function App() {
                   <Lock size={15} />
                 </span>
                 <span>
-                  <strong>El sistema confió:</strong> vio un acceso “legítimo” y
-                  dejó pasar la operación.
+                  <strong>Desde adentro, en 20 minutos:</strong> con esa
+                  notebook comprometida entraron a sistemas internos y vaciaron
+                  las billeteras.
                 </span>
               </div>
               <div className="clean-list-item">
@@ -140,7 +142,7 @@ export default function App() {
                 </span>
                 <span>
                   <strong>En la concesionaria:</strong> el antivirus no
-                  reemplaza tu criterio antes de hacer clic.
+                  reemplaza tu criterio antes de abrir un archivo o hacer clic.
                 </span>
               </div>
             </div>
