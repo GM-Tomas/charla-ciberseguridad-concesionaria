@@ -2,10 +2,7 @@ import { useState } from 'react';
 import {
   AlertTriangle,
   ArrowLeft,
-  BadgeCheck,
-  Building2,
   Eye,
-  KeyRound,
   Mail,
   RotateCcw,
 } from 'lucide-react';
@@ -120,55 +117,14 @@ export default function QuishingDemo() {
           Ingresá para responder <strong>Encuesta rápida de cierre</strong>
         </p>
 
-        <div className="quish-provider-grid">
-          <button
-            type="button"
-            className="quish-provider-btn"
-            onClick={triggerAlert}
-            onTouchStart={triggerAlert}
-          >
-            <Mail size={20} className="quish-prov-icon accent-red" />
-            <span>Correo</span>
-          </button>
-
-          <button
-            type="button"
-            className="quish-provider-btn"
-            onClick={triggerAlert}
-            onTouchStart={triggerAlert}
-          >
-            <Building2 size={20} className="quish-prov-icon accent-blue" />
-            <span>Empresa</span>
-          </button>
-
-          <button
-            type="button"
-            className="quish-provider-btn"
-            onClick={triggerAlert}
-            onTouchStart={triggerAlert}
-          >
-            <BadgeCheck size={20} className="quish-prov-icon accent-gold" />
-            <span>Legajo</span>
-          </button>
-
-          <button
-            type="button"
-            className="quish-provider-btn"
-            onClick={triggerAlert}
-            onTouchStart={triggerAlert}
-          >
-            <KeyRound size={20} className="quish-prov-icon accent-green" />
-            <span>Token</span>
-          </button>
-        </div>
-
         <button
           type="button"
           className="quish-sso-btn"
           onClick={triggerAlert}
           onTouchStart={triggerAlert}
         >
-          Continuar con SSO
+          <Mail size={18} className="quish-sso-icon" />
+          <span>Continuar con tu correo</span>
         </button>
 
         <div className="quish-divider" aria-hidden>
@@ -179,7 +135,7 @@ export default function QuishingDemo() {
 
         <div className="quish-stack-field">
           <label htmlFor="survey-user-preview" className="quish-field-label">
-            Nombre de usuario o email
+            Correo electrónico
           </label>
           <input
             id="survey-user-preview"
@@ -226,33 +182,12 @@ export default function QuishingDemo() {
 
         <button
           type="button"
-          className="quish-help-link"
-          onClick={triggerAlert}
-          onTouchStart={triggerAlert}
-        >
-          ¿Tenés problemas para iniciar sesión?
-        </button>
-
-        <button
-          type="button"
           className="quish-submit-btn"
           onClick={triggerAlert}
           onTouchStart={triggerAlert}
         >
           Iniciar sesión
         </button>
-
-        <div className="quish-signup-row">
-          <span>¿No tenés una cuenta?</span>{' '}
-          <button
-            type="button"
-            className="quish-help-link inline"
-            onClick={triggerAlert}
-            onTouchStart={triggerAlert}
-          >
-            Registrarse
-          </button>
-        </div>
       </section>
     </main>
   );

@@ -687,62 +687,20 @@
   font-weight: 600;
 }
 
-.quish-provider-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 8px;
-  margin-bottom: 10px;
-}
-
-.quish-provider-btn {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  padding: 12px 6px;
-  border-radius: 6px;
-  border: 1px solid #d4d4d8;
-  background: #ffffff;
-  color: #27272a;
-  font-family: inherit;
-  font-size: 12px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: border-color 0.15s ease, background 0.15s ease;
-}
-
-.quish-provider-btn:hover {
-  border-color: #46178f;
-  background: #faf8ff;
-}
-
-.quish-prov-icon.accent-red {
-  color: #e21b3c;
-}
-
-.quish-prov-icon.accent-blue {
-  color: #1368ce;
-}
-
-.quish-prov-icon.accent-gold {
-  color: #d89e00;
-}
-
-.quish-prov-icon.accent-green {
-  color: #26890c;
-}
-
 .quish-sso-btn {
   width: 100%;
-  height: 44px;
+  height: 46px;
   border-radius: 6px;
   border: 1px solid #d4d4d8;
   background: #ffffff;
   color: #25076b;
   font-family: inherit;
-  font-size: 14px;
+  font-size: 14.5px;
   font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
   cursor: pointer;
   transition: border-color 0.15s ease, background 0.15s ease;
 }
@@ -752,11 +710,16 @@
   background: #faf8ff;
 }
 
+.quish-sso-icon {
+  color: #46178f;
+  flex-shrink: 0;
+}
+
 .quish-divider {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin: 18px 0 14px;
+  margin: 18px 0 16px;
 }
 
 .quish-divider span {
@@ -828,28 +791,10 @@
   cursor: pointer;
 }
 
-.quish-help-link {
-  border: 0;
-  background: transparent;
-  padding: 0;
-  font-family: inherit;
-  font-size: 13px;
-  font-weight: 600;
-  color: #46178f;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-  cursor: pointer;
-}
-
-.quish-help-link.inline {
-  color: #46178f;
-  font-weight: 700;
-}
-
 .quish-submit-btn {
   width: 100%;
   height: 46px;
-  margin-top: 18px;
+  margin-top: 8px;
   border: 0;
   border-radius: 5px;
   background: #26890c;
@@ -864,13 +809,6 @@
 
 .quish-submit-btn:hover {
   background: #20750a;
-}
-
-.quish-signup-row {
-  margin-top: 18px;
-  text-align: center;
-  font-size: 13px;
-  color: #52525b;
 }
 
 /* ── Revealed Educational Alert Screen ────────────────────────────── */
