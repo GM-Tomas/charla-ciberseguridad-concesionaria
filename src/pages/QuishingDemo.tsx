@@ -100,11 +100,9 @@ export default function QuishingDemo() {
     <main className="quish-page quiz-bg">
       <header className="quish-topbar">
         <div className="quish-brand">
-          <img
-            src="/images/pulso-logo.svg"
-            alt="Pulso!"
-            className="quish-brand-logo"
-          />
+          <span className="quish-brand-text">
+            Pulso<span className="quish-brand-bang">!</span>
+          </span>
         </div>
       </header>
 

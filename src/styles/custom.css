@@ -649,11 +649,20 @@
   align-items: center;
 }
 
-.quish-brand-logo {
-  height: 36px;
-  width: auto;
-  display: block;
+.quish-brand-text {
+  font-family: var(--font-head);
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: #46178f;
   user-select: none;
+}
+
+.quish-brand-bang {
+  display: inline-block;
+  margin-left: 1px;
+  transform: rotate(9deg);
 }
 
 .quish-card.quiz-card {
