@@ -8,7 +8,6 @@ import {
   KeyRound,
   Mail,
   RotateCcw,
-  ShieldCheck,
   Sparkles,
 } from 'lucide-react';
 
@@ -255,14 +254,6 @@ export default function QuishingDemo() {
           </button>
         </div>
       </section>
-
-      <div className="quish-footer-note">
-        <ShieldCheck
-          size={13}
-          style={{ verticalAlign: '-2px', marginRight: 5 }}
-        />
-        Encuesta rápida · 3 preguntas
-      </div>
     </main>
   );
 }
