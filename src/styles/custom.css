@@ -613,17 +613,17 @@
 }
 
 .quish-page.quiz-bg {
-  background-color: #f3f4f6;
+  background-color: #f2f1f7;
   background-image: linear-gradient(
       128deg,
-      rgba(229, 231, 235, 0.72) 0%,
-      rgba(229, 231, 235, 0.72) 28%,
+      rgba(70, 23, 143, 0.075) 0%,
+      rgba(70, 23, 143, 0.075) 28%,
       transparent 28.2%
     ),
     linear-gradient(
       235deg,
-      rgba(229, 231, 235, 0.65) 0%,
-      rgba(229, 231, 235, 0.65) 26%,
+      rgba(70, 23, 143, 0.055) 0%,
+      rgba(70, 23, 143, 0.055) 26%,
       transparent 26.2%
     );
 }
@@ -636,9 +636,9 @@
 
 .quish-topbar {
   position: absolute;
-  top: 18px;
-  left: 22px;
-  right: 22px;
+  top: 16px;
+  left: 20px;
+  right: 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -647,26 +647,13 @@
 .quish-brand {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
 }
 
-.quish-brand-mark {
-  width: 30px;
-  height: 30px;
-  border-radius: 9px;
-  background: #0f766e;
-  color: #ffffff;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.quish-brand-name {
-  font-family: var(--font-head);
-  font-size: 22px;
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  color: #115e59;
+.quish-brand-logo {
+  height: 36px;
+  width: auto;
+  display: block;
+  user-select: none;
 }
 
 .quish-card.quiz-card {
@@ -674,8 +661,8 @@
   max-width: 424px;
   background: #ffffff;
   border-radius: 12px;
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 10px 34px -16px rgba(15, 23, 42, 0.16);
+  border: 1px solid #e4e1ef;
+  box-shadow: 0 12px 36px -16px rgba(37, 7, 107, 0.22);
   padding: 28px 26px 26px;
 }
 
@@ -720,30 +707,30 @@
   color: #27272a;
   font-family: inherit;
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   transition: border-color 0.15s ease, background 0.15s ease;
 }
 
 .quish-provider-btn:hover {
-  border-color: #a1a1aa;
-  background: #fafafa;
+  border-color: #46178f;
+  background: #faf8ff;
+}
+
+.quish-prov-icon.accent-red {
+  color: #e21b3c;
 }
 
 .quish-prov-icon.accent-blue {
-  color: #2563eb;
+  color: #1368ce;
 }
 
-.quish-prov-icon.accent-teal {
-  color: #0f766e;
+.quish-prov-icon.accent-gold {
+  color: #d89e00;
 }
 
-.quish-prov-icon.accent-slate {
-  color: #18181b;
-}
-
-.quish-prov-icon.accent-indigo {
-  color: #4f46e5;
+.quish-prov-icon.accent-green {
+  color: #26890c;
 }
 
 .quish-sso-btn {
@@ -752,7 +739,7 @@
   border-radius: 6px;
   border: 1px solid #d4d4d8;
   background: #ffffff;
-  color: #18181b;
+  color: #25076b;
   font-family: inherit;
   font-size: 14px;
   font-weight: 700;
@@ -761,8 +748,8 @@
 }
 
 .quish-sso-btn:hover {
-  border-color: #a1a1aa;
-  background: #fafafa;
+  border-color: #46178f;
+  background: #faf8ff;
 }
 
 .quish-divider {
@@ -817,8 +804,8 @@
 }
 
 .quish-clean-input:focus {
-  border-color: #0f766e;
-  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.14);
+  border-color: #46178f;
+  box-shadow: 0 0 0 3px rgba(70, 23, 143, 0.16);
 }
 
 .quish-pass-wrap {
@@ -848,34 +835,35 @@
   font-family: inherit;
   font-size: 13px;
   font-weight: 600;
-  color: #3f3f46;
+  color: #46178f;
   text-decoration: underline;
   text-underline-offset: 2px;
   cursor: pointer;
 }
 
 .quish-help-link.inline {
-  color: #18181b;
+  color: #46178f;
   font-weight: 700;
 }
 
 .quish-submit-btn {
   width: 100%;
-  height: 44px;
+  height: 46px;
   margin-top: 18px;
   border: 0;
   border-radius: 5px;
-  background: #0f766e;
+  background: #26890c;
+  box-shadow: inset 0 -4px 0 rgba(0, 0, 0, 0.22);
   color: #ffffff;
   font-family: inherit;
-  font-size: 14.5px;
+  font-size: 15px;
   font-weight: 700;
   cursor: pointer;
-  transition: background 0.15s ease;
+  transition: background 0.15s ease, transform 0.1s ease;
 }
 
 .quish-submit-btn:hover {
-  background: #115e59;
+  background: #20750a;
 }
 
 .quish-signup-row {
@@ -883,13 +871,6 @@
   text-align: center;
   font-size: 13px;
   color: #52525b;
-}
-
-.quish-footer-note {
-  margin-top: 16px;
-  font-size: 12px;
-  color: #71717a;
-  text-align: center;
 }
 
 /* ── Revealed Educational Alert Screen ────────────────────────────── */

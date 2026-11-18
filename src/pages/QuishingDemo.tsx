@@ -8,7 +8,6 @@ import {
   KeyRound,
   Mail,
   RotateCcw,
-  Sparkles,
 } from 'lucide-react';
 
 /**
@@ -104,10 +103,11 @@ export default function QuishingDemo() {
     <main className="quish-page quiz-bg">
       <header className="quish-topbar">
         <div className="quish-brand">
-          <span className="quish-brand-mark" aria-hidden>
-            <Sparkles size={16} />
-          </span>
-          <span className="quish-brand-name">Pulso!</span>
+          <img
+            src="/images/pulso-logo.svg"
+            alt="Pulso!"
+            className="quish-brand-logo"
+          />
         </div>
       </header>
 
@@ -127,7 +127,7 @@ export default function QuishingDemo() {
             onClick={triggerAlert}
             onTouchStart={triggerAlert}
           >
-            <Mail size={20} className="quish-prov-icon accent-blue" />
+            <Mail size={20} className="quish-prov-icon accent-red" />
             <span>Correo</span>
           </button>
 
@@ -137,7 +137,7 @@ export default function QuishingDemo() {
             onClick={triggerAlert}
             onTouchStart={triggerAlert}
           >
-            <Building2 size={20} className="quish-prov-icon accent-teal" />
+            <Building2 size={20} className="quish-prov-icon accent-blue" />
             <span>Empresa</span>
           </button>
 
@@ -147,7 +147,7 @@ export default function QuishingDemo() {
             onClick={triggerAlert}
             onTouchStart={triggerAlert}
           >
-            <BadgeCheck size={20} className="quish-prov-icon accent-slate" />
+            <BadgeCheck size={20} className="quish-prov-icon accent-gold" />
             <span>Legajo</span>
           </button>
 
@@ -157,7 +157,7 @@ export default function QuishingDemo() {
             onClick={triggerAlert}
             onTouchStart={triggerAlert}
           >
-            <KeyRound size={20} className="quish-prov-icon accent-indigo" />
+            <KeyRound size={20} className="quish-prov-icon accent-green" />
             <span>Token</span>
           </button>
         </div>
