@@ -15,6 +15,7 @@ import {
   QrCode,
   ShieldAlert,
   ShieldCheck,
+  SlidersHorizontal,
   Usb,
   UserCheck,
   Zap,
@@ -562,8 +563,100 @@ export default function App() {
           }
         />
 
-        {/* 12 · 5 ESTÁNDARES DIARIOS (Bloque 6 · 4 min) */}
+        {/* 12 · BUEN USO DE IA CON FOCO EN SEGURIDAD (Bloque 5 · 3 min) */}
         <Slide center nav={SLIDE_GUIDES[11].nav} notes={n(11)}>
+          <div className="container">
+            <Reveal>
+              <div
+                className="kicker"
+                style={{ marginBottom: 10, textAlign: 'center' }}
+              >
+                05 · Buen uso de IA · Seguridad práctica
+              </div>
+              <h2
+                className="headline"
+                style={{
+                  textAlign: 'center',
+                  marginInline: 'auto',
+                  marginBottom: 'clamp(22px, 3.6vh, 36px)',
+                }}
+              >
+                Cómo usar IA sin regalar información.
+              </h2>
+            </Reveal>
+
+            <Reveal delay={0.14}>
+              <div className="four-grid">
+                <div className="five-card">
+                  <div className="five-card-top">
+                    <span className="five-card-icon">
+                      <SlidersHorizontal size={18} />
+                    </span>
+                    <span className="five-card-num">01</span>
+                  </div>
+                  <h3>Apagá el entrenamiento</h3>
+                  <p>Desactivalo en Ajustes o usá Chat Temporal.</p>
+                </div>
+
+                <div className="five-card">
+                  <div className="five-card-top">
+                    <span className="five-card-icon">
+                      <ShieldCheck size={18} />
+                    </span>
+                    <span className="five-card-num">02</span>
+                  </div>
+                  <h3>Modo con permiso</h3>
+                  <p>
+                    Pedí confirmación antes de que conecte mail, Drive o ejecute
+                    acciones.
+                  </p>
+                </div>
+
+                <div className="five-card">
+                  <div className="five-card-top">
+                    <span className="five-card-icon">
+                      <Eye size={18} />
+                    </span>
+                    <span className="five-card-num">03</span>
+                  </div>
+                  <h3>Validá la salida</h3>
+                  <p>Chequeá datos, links y cálculos antes de usarlos.</p>
+                </div>
+
+                <div className="five-card">
+                  <div className="five-card-top">
+                    <span className="five-card-icon">
+                      <Lock size={18} />
+                    </span>
+                    <span className="five-card-num">04</span>
+                  </div>
+                  <h3>Anonimizá siempre</h3>
+                  <p>Sin DNI, CBU, nombres reales ni archivos internos.</p>
+                </div>
+              </div>
+            </Reveal>
+
+            <Build at={1}>
+              <div
+                className="callout-strip"
+                style={{
+                  maxWidth: 860,
+                  marginInline: 'auto',
+                  marginTop: 'clamp(18px, 2.8vh, 26px)',
+                  textAlign: 'left',
+                }}
+              >
+                <strong>Dato clave:</strong> pagar Plus o Pro personal no te da
+                privacidad corporativa. El resguardo por contrato solo viene en
+                planes Team/Enterprise o API; en cuentas personales, apagá el
+                entrenamiento.
+              </div>
+            </Build>
+          </div>
+        </Slide>
+
+        {/* 13 · 5 ESTÁNDARES DIARIOS (Bloque 6 · 4 min) */}
+        <Slide center nav={SLIDE_GUIDES[12].nav} notes={n(12)}>
           <div className="container">
             <Reveal>
               <div
@@ -652,28 +745,28 @@ export default function App() {
           </div>
         </Slide>
 
-        {/* 13 · CULTURA SIN CULPA (Bloque 6 · cierre emocional) */}
+        {/* 14 · CULTURA SIN CULPA (Bloque 6 · cierre emocional) */}
         <Quote
-          nav={SLIDE_GUIDES[12].nav}
-          notes={n(12)}
+          nav={SLIDE_GUIDES[13].nav}
+          notes={n(13)}
           text="Equivocarse puede pasar. Esconderlo por vergüenza multiplica el daño. Avisar en el minuto 1 nos cuida a todos."
           name="Cultura sin culpa"
           role="Regla de equipo · Ante la duda, frená y avisá"
         />
 
-        {/* 14 · ACTIVIDAD PRÁCTICA: ENCUESTA QR (Bloque 7 · 4 min) */}
+        {/* 15 · ACTIVIDAD PRÁCTICA: ENCUESTA QR (Bloque 7 · 4 min) */}
         <QrSurveySlide
-          nav={SLIDE_GUIDES[13].nav}
-          notes={n(13)}
+          nav={SLIDE_GUIDES[14].nav}
+          notes={n(14)}
           onOpenDebrief={() => {
-            window.location.hash = '#15';
+            window.location.hash = '#16';
           }}
         />
 
-        {/* 15 · DEBRIEF DEL EJERCICIO (Bloque 7 · cierre circular) */}
+        {/* 16 · DEBRIEF DEL EJERCICIO (Bloque 7 · cierre circular) */}
         <Steps
-          nav={SLIDE_GUIDES[14].nav}
-          notes={n(14)}
+          nav={SLIDE_GUIDES[15].nav}
+          notes={n(15)}
           kicker="07 · Claves del ejercicio · Cierre"
           title="Tres reflejos que hoy te llevás en vivo."
           items={[
