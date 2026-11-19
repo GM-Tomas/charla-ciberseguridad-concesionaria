@@ -615,9 +615,10 @@ export default function App() {
                     </span>
                     <span className="five-card-num">03</span>
                   </div>
-                  <h3>PCs y USB</h3>
+                  <h3>PCs, USB y Wi-Fi</h3>
                   <p>
-                    Cerrá WhatsApp Web compartido; cero pendrives desconocidos.
+                    Cerrá sesiones compartidas, cero USB raros y solo Wi-Fi de
+                    confianza.
                   </p>
                 </div>
 

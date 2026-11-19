@@ -4,14 +4,11 @@ import {
   ArrowLeft,
   Eye,
   Mail,
-  RotateCcw,
 } from 'lucide-react';
 
 /**
  * RUTA 2: /encuesta — Simulación educativa de Quishing (100% inofensiva)
  * - Sin backend, sin llamadas de red, sin <form>, sin almacenamiento ni consola.
- * - Identidad ficticia ("Pulso · Encuestas") con diseño moderno de portal de quiz/encuesta
- *   (sin marcas ni logotipos de terceros reales).
  * - Los campos son estrictamente readOnly y cualquier toque/clic dispara al instante
  *   el cartel educativo "¡ESTO ES QUISHING!".
  */
@@ -23,74 +20,31 @@ export default function QuishingDemo() {
   };
 
   if (revealed) {
-    const currentHost =
-      typeof window !== 'undefined' ? window.location.host : 'este dominio';
-
     return (
       <main className="quish-page revealed">
-        <section className="quish-alert-card" role="alert" aria-live="assertive">
+        <section
+          className="quish-alert-card minimal"
+          role="alert"
+          aria-live="assertive"
+        >
           <div className="quish-alert-badge">
             <AlertTriangle size={14} />
-            <span>Simulación educativa · Charla en vivo</span>
+            <span>Simulación educativa</span>
           </div>
 
           <h1 className="quish-alert-title">
             ¡ESTO ES <span>QUISHING!</span>
           </h1>
 
-          <div className="quish-calm">
-            <strong>Tranquilo/a: esto es parte de la charla.</strong> No se
-            guardó ningún dato ni tu correo. Esta página ni siquiera permite
-            escribir.
-          </div>
-
-          <p className="quish-lead">
-            Acabás de comprobar en vivo lo fácil que es confiar en un código QR
-            y entregar tu acceso en piloto automático.
+          <p className="quish-lead minimal">
+            Tranquilo/a: <strong>no se guardó ningún dato.</strong> Solo
+            comprobaste lo fácil que es tocar un QR sin frenar a mirar la URL.
           </p>
 
-          <div className="quish-tips">
-            <div className="quish-tip">
-              <span className="quish-tip-num">1</span>
-              <div>
-                <strong>Mirá la URL arriba:</strong> estabas en{' '}
-                <span className="quish-url-chip">{currentHost}</span>, no en un
-                portal oficial de inicio de sesión.
-              </div>
-            </div>
-
-            <div className="quish-tip">
-              <span className="quish-tip-num">2</span>
-              <div>
-                <strong>Cuestioná el pedido:</strong> ¿para responder una
-                encuesta simple y anónima de 3 preguntas hacía falta tu cuenta?
-              </div>
-            </div>
-
-            <div className="quish-tip">
-              <span className="quish-tip-num">3</span>
-              <div>
-                <strong>Frená 5 segundos antes de tocar</strong> cada vez que
-                escaneás un código QR: un QR es solo un link disfrazado.
-              </div>
-            </div>
-          </div>
-
-          <div className="quish-alert-footer">
-            <button
-              type="button"
-              className="quish-ghost-btn"
-              onClick={() => setRevealed(false)}
-            >
-              <RotateCcw size={14} />
-              <span>Ver pantalla inicial</span>
-            </button>
-
-            <a href="/" className="quish-ghost-btn">
-              <ArrowLeft size={14} />
-              <span>Volver a la charla</span>
-            </a>
-          </div>
+          <a href="/#1" className="quish-primary-link">
+            <ArrowLeft size={15} />
+            <span>Ir a la presentación</span>
+          </a>
         </section>
       </main>
     );

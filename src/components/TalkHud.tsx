@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Clock, FileText, Pause, Play, RotateCcw, X } from 'lucide-react';
+import { Clock, Pause, Play, RotateCcw } from 'lucide-react';
 import { SLIDE_GUIDES, TOTAL_TALK_MINUTES } from '../data/talkMeta';
 
 const TOTAL_SECONDS = TOTAL_TALK_MINUTES * 60;
@@ -22,7 +22,6 @@ export default function TalkHud() {
     'presenter'
   );
   const [slideIdx, setSlideIdx] = useState(readSlideIndex);
-  const [notesOpen, setNotesOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [running, setRunning] = useState(false);
   const [elapsed, setElapsed] = useState(0);
@@ -45,7 +44,7 @@ export default function TalkHud() {
     return () => window.clearInterval(id);
   }, [running]);
 
-  // Keyboard shortcuts: N toggles quick speaker notes; H mirrors Deck UI hide
+  // Keyboard shortcuts: H mirrors Deck UI hide
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.metaKey || e.ctrlKey || e.altKey) return;
@@ -58,13 +57,9 @@ export default function TalkHud() {
       ) {
         return;
       }
-      if (e.key === 'n' || e.key === 'N') {
-        e.preventDefault();
-        setNotesOpen((v) => !v);
-      } else if (e.key === 'h' || e.key === 'H') {
+      if (e.key === 'h' || e.key === 'H') {
         setHidden((v) => !v);
       } else if (e.key === 'Escape') {
-        setNotesOpen(false);
         setHidden(false);
       }
     };
@@ -89,7 +84,7 @@ export default function TalkHud() {
         />
       </div>
 
-      {/* Discreet top-right block indicator, 30-min timer & Notes (N) trigger */}
+      {/* Discreet top-right block indicator & 30-min timer */}
       <div className={'talk-hud' + (hidden ? ' hidden' : '')}>
         <div className="talk-pill talk-pill-block" title="Bloque y ventana sugerida">
           <span className="talk-dot" />
@@ -134,56 +129,7 @@ export default function TalkHud() {
             <RotateCcw size={12} />
           </button>
         )}
-
-        <button
-          type="button"
-          className={'talk-pill talk-pill-btn' + (notesOpen ? ' active' : '')}
-          onClick={() => setNotesOpen((v) => !v)}
-          title="Notas del orador (Tecla N)"
-          aria-pressed={notesOpen}
-        >
-          <FileText size={13} />
-          <span>Notas (N)</span>
-        </button>
       </div>
-
-      {/* Optional Speaker Notes Overlay */}
-      {notesOpen && (
-        <aside
-          className="notes-drawer"
-          role="dialog"
-          aria-label="Notas del orador"
-        >
-          <div className="notes-drawer-head">
-            <div className="notes-drawer-meta">
-              <span className="notes-drawer-kicker">
-                Bloque {guide.blockIndex}/7 · {guide.blockMinutes} min (
-                {guide.timeWindow})
-              </span>
-              <span className="notes-drawer-title">
-                Slide {guide.slideNumber}/{SLIDE_GUIDES.length} · {guide.nav}
-              </span>
-            </div>
-            <button
-              type="button"
-              className="notes-close"
-              onClick={() => setNotesOpen(false)}
-              aria-label="Cerrar notas"
-            >
-              <X size={15} />
-            </button>
-          </div>
-
-          <div className="notes-section-label">Qué decir</div>
-          <p className="notes-say">{guide.say}</p>
-
-          <div className="notes-section-label">Lo clave que no podés olvidar</div>
-          <div className="notes-key">{guide.keyTakeaway}</div>
-
-          <div className="notes-section-label">Hilo conductor → siguiente</div>
-          <p className="notes-bridge">“{guide.bridge}”</p>
-        </aside>
-      )}
     </>
   );
 }

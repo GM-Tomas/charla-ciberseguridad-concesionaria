@@ -820,41 +820,42 @@
   background: #20750a;
 }
 
-/* ── Revealed Educational Alert Screen ────────────────────────────── */
+/* ── Revealed Educational Alert Screen (Minimalist) ────────────────── */
 .quish-alert-card {
   width: 100%;
-  max-width: 540px;
+  max-width: 440px;
   background: #111114;
   border-radius: 22px;
-  border: 1px solid rgba(235, 10, 30, 0.45);
+  border: 1px solid rgba(235, 10, 30, 0.42);
   box-shadow: 0 32px 90px -24px rgba(0, 0, 0, 0.85),
     0 0 0 1px rgba(255, 255, 255, 0.05);
-  padding: clamp(24px, 5vw, 38px);
+  padding: clamp(28px, 6vw, 42px) clamp(24px, 5vw, 36px);
+  text-align: center;
 }
 
 .quish-alert-badge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 7px;
   padding: 6px 12px;
   border-radius: 999px;
-  background: rgba(235, 10, 30, 0.16);
-  border: 1px solid rgba(235, 10, 30, 0.45);
+  background: rgba(235, 10, 30, 0.14);
+  border: 1px solid rgba(235, 10, 30, 0.4);
   color: #ff6b78;
   font-family: var(--font-mono);
-  font-size: 11.5px;
+  font-size: 11px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 }
 
 .quish-alert-title {
-  margin: 0 0 14px;
+  margin: 0 0 16px;
   font-family: var(--font-head);
-  font-size: clamp(30px, 7vw, 44px);
+  font-size: clamp(32px, 7.5vw, 44px);
   font-weight: 800;
-  line-height: 1.05;
+  line-height: 1.04;
   letter-spacing: -0.03em;
   color: #ffffff;
 }
@@ -863,100 +864,38 @@
   color: #ff4d5a;
 }
 
-.quish-calm {
-  padding: 14px 16px;
-  border-radius: 12px;
-  background: rgba(16, 185, 129, 0.12);
-  border: 1px solid rgba(16, 185, 129, 0.32);
-  color: #d1fae5;
-  font-size: 14.5px;
-  line-height: 1.5;
-  margin-bottom: 16px;
-}
-
-.quish-lead {
-  margin: 0 0 20px;
-  font-size: 15px;
+.quish-lead.minimal {
+  margin: 0 auto 28px;
+  max-width: 34ch;
+  font-size: 15.5px;
   line-height: 1.55;
   color: #d4d4d8;
 }
 
-.quish-tips {
-  display: flex;
-  flex-direction: column;
-  gap: 11px;
-  margin-bottom: 24px;
-}
-
-.quish-tip {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  padding: 13px 15px;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  font-size: 14px;
-  line-height: 1.45;
-  color: #e4e4e7;
-}
-
-.quish-tip-num {
-  width: 24px;
-  height: 24px;
-  border-radius: 999px;
-  background: rgba(235, 10, 30, 0.18);
-  color: #ff6b78;
-  font-family: var(--font-mono);
-  font-size: 12px;
+.quish-lead.minimal strong {
+  color: #ffffff;
   font-weight: 600;
+}
+
+.quish-primary-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
-  margin-top: 1px;
-}
-
-.quish-tip strong {
-  color: #ffffff;
-}
-
-.quish-url-chip {
-  font-family: var(--font-mono);
-  font-size: 12.5px;
-  padding: 2px 6px;
-  border-radius: 5px;
-  background: rgba(255, 255, 255, 0.08);
-  color: #fafafa;
-}
-
-.quish-alert-footer {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  padding-top: 14px;
-  border-top: 1px solid rgba(255, 255, 255, 0.09);
-}
-
-.quish-ghost-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  padding: 9px 14px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  background: transparent;
-  color: #d4d4d8;
+  gap: 8px;
+  width: 100%;
+  height: 46px;
+  padding: 0 18px;
+  border-radius: 12px;
+  background: #fafafa;
+  color: #09090b;
   font-family: inherit;
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 14.5px;
+  font-weight: 700;
   text-decoration: none;
-  cursor: pointer;
+  transition: background 0.15s ease, transform 0.12s ease;
 }
 
-.quish-ghost-btn:hover {
-  border-color: rgba(255, 255, 255, 0.35);
-  color: #ffffff;
+.quish-primary-link:hover {
+  background: #ffffff;
+  transform: translateY(-1px);
 }
